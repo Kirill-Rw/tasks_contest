@@ -10,15 +10,21 @@ bool isPrime(int n) {
     return true;
 }
 
-int main() {
-    int a, b;
-    cin >> a >> b;
-    int count = 0;
-    for (int i = a; i <= b; i++) {
-        if (isPrime(i) == true) {
-            count += 1;
-        }
+int last_num(int n) {
+    return n % 10;
+}
+
+int time(int a, int b, int c, int d) {
+    int k = a * 60 + b + c * 60 + d;
+    if (24 * 60 < k) {
+        return k - 24 * 60;
     }
-    cout << count;
+    return k;
+}
+
+int main() {
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    cout << time (a, b, c, d);
     return 0;
 }
