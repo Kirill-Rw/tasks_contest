@@ -22,9 +22,27 @@ int time(int a, int b, int c, int d) {
     return k;
 }
 
+int fib(int x) {
+    if (x == 1 || x == 2) {
+        return 1;
+    }
+    int f_x = fib(x - 1) + fib(x - 2);
+    return f_x;
+}
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+int lcm(int a, int b) {
+    return (a + b) / gcd(a, b);
+}
+
 int main() {
-    int a, b, c, d;
-    cin >> a >> b >> c >> d;
-    cout << time (a, b, c, d);
+    int a, b;
+    cin >> a >> b;
+    cout << lcm(a, b);
+
     return 0;
 }
